@@ -14,10 +14,13 @@ namespace MasterProject.Data.Migrations
                 name: "Recipe",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<int>(type: "int", nullable: false),
+                    Carbohydrates = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Fat = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Fiber = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Kcal = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Kcal = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Protein = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {

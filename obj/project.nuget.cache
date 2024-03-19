@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "cMMmGi2J41IqR8tph+qVBCN/5dRILPBqqNiwqq4rE8BBEN3M/Y75Q390R+UfA/OFjVYGaKS5EC4F26HGR6q/SA==",
+  "dgSpecHash": "bs32YbJu0T/bRDWbVmC4hXq1s1NhvBoflheHAU1BYrzJhd0nkAzD+DLqk7xry3t7AkfHEPopeJ4CYh3MawgtUg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Bartek\\source\\repos\\MasterProject\\MasterProject.csproj",
+  "projectFilePath": "C:\\Users\\Bartek\\Documents\\MasterProject2\\MasterProject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Bartek\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Bartek\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

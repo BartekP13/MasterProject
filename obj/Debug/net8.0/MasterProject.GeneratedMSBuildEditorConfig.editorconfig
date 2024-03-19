@@ -17,67 +17,67 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MasterProject
 build_property.RootNamespace = MasterProject
-build_property.ProjectDir = C:\Users\Bartek\source\repos\MasterProject\
+build_property.ProjectDir = C:\Users\Bartek\Documents\MasterProject2\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Bartek\source\repos\MasterProject
+build_property.MSBuildProjectDirectory = C:\Users\Bartek\Documents\MasterProject2
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Bartek/source/repos/MasterProject/Areas/Identity/Pages/_ViewStart.cshtml]
+[C:/Users/Bartek/Documents/MasterProject2/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Bartek/source/repos/MasterProject/Views/Home/Index.cshtml]
+[C:/Users/Bartek/Documents/MasterProject2/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Bartek/source/repos/MasterProject/Views/Home/Privacy.cshtml]
+[C:/Users/Bartek/Documents/MasterProject2/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Bartek/source/repos/MasterProject/Views/Recipes/Create.cshtml]
+[C:/Users/Bartek/Documents/MasterProject2/Views/Recipes/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjaXBlc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Bartek/source/repos/MasterProject/Views/Recipes/Delete.cshtml]
+[C:/Users/Bartek/Documents/MasterProject2/Views/Recipes/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjaXBlc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Bartek/source/repos/MasterProject/Views/Recipes/Details.cshtml]
+[C:/Users/Bartek/Documents/MasterProject2/Views/Recipes/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjaXBlc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Bartek/source/repos/MasterProject/Views/Recipes/Edit.cshtml]
+[C:/Users/Bartek/Documents/MasterProject2/Views/Recipes/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjaXBlc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Bartek/source/repos/MasterProject/Views/Recipes/Index.cshtml]
+[C:/Users/Bartek/Documents/MasterProject2/Views/Recipes/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjaXBlc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Bartek/source/repos/MasterProject/Views/Shared/Error.cshtml]
+[C:/Users/Bartek/Documents/MasterProject2/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Bartek/source/repos/MasterProject/Views/Shared/_LoginPartial.cshtml]
+[C:/Users/Bartek/Documents/MasterProject2/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Bartek/source/repos/MasterProject/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Bartek/Documents/MasterProject2/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Bartek/source/repos/MasterProject/Views/_ViewImports.cshtml]
+[C:/Users/Bartek/Documents/MasterProject2/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Bartek/source/repos/MasterProject/Views/_ViewStart.cshtml]
+[C:/Users/Bartek/Documents/MasterProject2/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Bartek/source/repos/MasterProject/Views/Shared/_Layout.cshtml]
+[C:/Users/Bartek/Documents/MasterProject2/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-6lepxo2myt
