@@ -9,6 +9,7 @@
         public string Kcal { get; set; }
         public string Name { get; set; }
         public string Protein { get; set; }
+        public ICollection<Ingredient> Ingredients { get; set; }
 
         public Recipe()
         {

@@ -10,6 +10,7 @@ namespace MasterProject.Data
             : base(options)
         {
         }
-        public DbSet<MasterProject.Models.Recipe> Recipe { get; set; } = default!;
+        public DbSet<MasterProject.Models.Recipe> Recipe { get; set; }
+        public DbSet<MasterProject.Models.Ingredient> Ingredient { get; set; }
     }
 }

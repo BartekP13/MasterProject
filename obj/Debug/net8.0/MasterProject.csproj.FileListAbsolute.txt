@@ -519,3 +519,12 @@ C:\Users\Bartek\Documents\MasterProject2\obj\Debug\net8.0\refint\MasterProject.d
 C:\Users\Bartek\Documents\MasterProject2\obj\Debug\net8.0\MasterProject.pdb
 C:\Users\Bartek\Documents\MasterProject2\obj\Debug\net8.0\MasterProject.genruntimeconfig.cache
 C:\Users\Bartek\Documents\MasterProject2\obj\Debug\net8.0\ref\MasterProject.dll
+C:\Users\Bartek\Documents\MasterProject2\bin\Debug\net8.0\Microsoft.AspNetCore.Authorization.dll
+C:\Users\Bartek\Documents\MasterProject2\bin\Debug\net8.0\Microsoft.AspNetCore.Components.dll
+C:\Users\Bartek\Documents\MasterProject2\bin\Debug\net8.0\Microsoft.AspNetCore.Components.Forms.dll
+C:\Users\Bartek\Documents\MasterProject2\bin\Debug\net8.0\Microsoft.AspNetCore.Components.Web.dll
+C:\Users\Bartek\Documents\MasterProject2\bin\Debug\net8.0\Microsoft.AspNetCore.Metadata.dll
+C:\Users\Bartek\Documents\MasterProject2\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Bartek\Documents\MasterProject2\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Bartek\Documents\MasterProject2\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\Users\Bartek\Documents\MasterProject2\bin\Debug\net8.0\Microsoft.JSInterop.dll

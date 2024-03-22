@@ -24,7 +24,6 @@ namespace MasterProject.Controllers
         {
             return View(await _context.Recipe.ToListAsync());
         }
-
         // GET: Recipes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -34,7 +33,9 @@ namespace MasterProject.Controllers
             }
 
             var recipe = await _context.Recipe
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .Include(r => r.Ingredients)
+                .FirstOrDefaultAsync(r => r.Id == id);
+
             if (recipe == null)
             {
                 return NotFound();
@@ -42,6 +43,10 @@ namespace MasterProject.Controllers
 
             return View(recipe);
         }
+
+
+
+
 
         // GET: Recipes/Create
         public IActionResult Create()
