@@ -34,6 +34,8 @@ namespace MasterProject.Controllers
 
             var recipe = await _context.Recipe
                 .Include(r => r.Ingredients)
+                .Include(r => r.Recipe_Tag)
+                    .ThenInclude(rt => rt.Tag) // Ładuje tagi dla Recipe_Tag
                 .FirstOrDefaultAsync(r => r.Id == id);
 
             if (recipe == null)
@@ -41,7 +43,17 @@ namespace MasterProject.Controllers
                 return NotFound();
             }
 
+            // Pobierz nazwy tagów
+            var tagNames = recipe.Recipe_Tag
+                .Where(rt => rt.Tag != null) // Upewnij się, że Tag nie jest null
+                .Select(rt => rt.Tag.Name)
+                .ToList();
+
+            // Przekaż nazwy tagów do widoku
+            ViewBag.TagNames = tagNames;
+
             return View(recipe);
+
         }
 
 

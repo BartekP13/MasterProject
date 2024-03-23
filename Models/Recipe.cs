@@ -10,6 +10,7 @@
         public string Name { get; set; }
         public string Protein { get; set; }
         public ICollection<Ingredient> Ingredients { get; set; }
+        public ICollection<Recipe_Tag> Recipe_Tag { get; set; }
 
         public Recipe()
         {

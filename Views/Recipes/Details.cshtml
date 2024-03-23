@@ -56,6 +56,17 @@
             </ul>
         </dd>
 
+        <dt class="col-sm-2">Tags</dt>
+        <dd class="col-sm-10">
+            <ul>
+                    @foreach (var tagName in ViewBag.TagNames)
+                    {
+                    <li>@tagName</li>
+                    }
+            </ul>
+        </dd>
+
+
     </dl>
 </div>
 <div>
