@@ -513,7 +513,6 @@ C:\Users\Bartek\Documents\MasterProject2\obj\Debug\net8.0\staticwebassets.pack.j
 C:\Users\Bartek\Documents\MasterProject2\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\Bartek\Documents\MasterProject2\obj\Debug\net8.0\scopedcss\bundle\MasterProject.styles.css
 C:\Users\Bartek\Documents\MasterProject2\obj\Debug\net8.0\scopedcss\projectbundle\MasterProject.bundle.scp.css
-C:\Users\Bartek\Documents\MasterProject2\obj\Debug\net8.0\MasterProject.csproj.CopyComplete
 C:\Users\Bartek\Documents\MasterProject2\obj\Debug\net8.0\MasterProject.dll
 C:\Users\Bartek\Documents\MasterProject2\obj\Debug\net8.0\refint\MasterProject.dll
 C:\Users\Bartek\Documents\MasterProject2\obj\Debug\net8.0\MasterProject.pdb
@@ -528,3 +527,4 @@ C:\Users\Bartek\Documents\MasterProject2\bin\Debug\net8.0\Microsoft.Extensions.D
 C:\Users\Bartek\Documents\MasterProject2\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\Bartek\Documents\MasterProject2\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
 C:\Users\Bartek\Documents\MasterProject2\bin\Debug\net8.0\Microsoft.JSInterop.dll
+C:\Users\Bartek\Documents\MasterProject2\obj\Debug\net8.0\MasterPr.40873B5A.Up2Date

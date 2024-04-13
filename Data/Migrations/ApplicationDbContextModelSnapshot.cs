@@ -85,6 +85,21 @@ namespace MasterProject.Data.Migrations
                     b.ToTable("Recipe");
                 });
 
+            modelBuilder.Entity("MasterProject.Models.Recipe_Tag", b =>
+                {
+                    b.Property<int>("RecipeId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TagId")
+                        .HasColumnType("int");
+
+                    b.HasKey("RecipeId", "TagId");
+
+                    b.HasIndex("TagId");
+
+                    b.ToTable("Recipe_Tag");
+                });
+
             modelBuilder.Entity("MasterProject.Models.Tag", b =>
                 {
                     b.Property<int>("Id")
@@ -315,6 +330,25 @@ namespace MasterProject.Data.Migrations
                     b.Navigation("Recipe");
                 });
 
+            modelBuilder.Entity("MasterProject.Models.Recipe_Tag", b =>
+                {
+                    b.HasOne("MasterProject.Models.Recipe", "Recipe")
+                        .WithMany("Recipe_Tag")
+                        .HasForeignKey("RecipeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MasterProject.Models.Tag", "Tag")
+                        .WithMany("Recipe_Tag")
+                        .HasForeignKey("TagId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Recipe");
+
+                    b.Navigation("Tag");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -369,6 +403,13 @@ namespace MasterProject.Data.Migrations
             modelBuilder.Entity("MasterProject.Models.Recipe", b =>
                 {
                     b.Navigation("Ingredients");
+
+                    b.Navigation("Recipe_Tag");
+                });
+
+            modelBuilder.Entity("MasterProject.Models.Tag", b =>
+                {
+                    b.Navigation("Recipe_Tag");
                 });
 #pragma warning restore 612, 618
         }

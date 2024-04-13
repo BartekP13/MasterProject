@@ -14,6 +14,7 @@ namespace MasterProject.Data
         public DbSet<MasterProject.Models.Ingredient> Ingredient { get; set; }
         public DbSet<MasterProject.Models.Tag> Tag { get; set; }
         public DbSet<MasterProject.Models.Recipe_Tag> Recipe_Tag { get; set;}
+        public DbSet<MasterProject.Models.Ratings> Ratings { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
