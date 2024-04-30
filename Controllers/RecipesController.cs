@@ -72,10 +72,19 @@ namespace MasterProject.Controllers
 
 
         // GET: Recipes
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            return View(await _context.Recipe.ToListAsync());
+            var recipes = from r in _context.Recipe
+                          select r;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                recipes = recipes.Where(r => r.Name.Contains(searchString));
+            }
+
+            return View(await recipes.ToListAsync());
         }
+
         // GET: Recipes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
