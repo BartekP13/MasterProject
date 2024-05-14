@@ -72,7 +72,7 @@ namespace MasterProject.Controllers
 
 
         // GET: Recipes
-        public async Task<IActionResult> Index(string searchString)
+        public async Task<IActionResult> Index(string searchString, int? page)
         {
             var recipes = from r in _context.Recipe
                           select r;
@@ -82,7 +82,18 @@ namespace MasterProject.Controllers
                 recipes = recipes.Where(r => r.Name.Contains(searchString));
             }
 
-            return View(await recipes.ToListAsync());
+            int pageSize = 21;
+            int pageNumber = (page ?? 1);
+
+            var totalItems = await recipes.CountAsync();
+            var totalPages = (int)Math.Ceiling((double)totalItems / pageSize);
+
+            ViewBag.CurrentPage = pageNumber;
+            ViewBag.TotalPages = totalPages;
+
+            var paginatedRecipes = await recipes.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();
+
+            return View(paginatedRecipes);
         }
 
         // GET: Recipes/Details/5

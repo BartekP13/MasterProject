@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "I9YAC1fp3XKxw8UIbQ4FOOAacDA+TpTfLi9wMUUyVyU=",
+  "Hash": "idPyrV9gMERGXs7oN+pxtNBD63qYcLWPC+3++FrZY5Y=",
   "Source": "MasterProject",
   "BasePath": "_content/MasterProject",
   "Mode": "Default",
@@ -1269,6 +1269,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\Bartek\\Documents\\MasterProject2\\wwwroot\\images\\400.jpg",
+      "SourceId": "MasterProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Bartek\\Documents\\MasterProject2\\wwwroot\\",
+      "BasePath": "_content/MasterProject",
+      "RelativePath": "images/400.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\400.jpg"
     },
     {
       "Identity": "C:\\Users\\Bartek\\Documents\\MasterProject2\\wwwroot\\js\\site.js",

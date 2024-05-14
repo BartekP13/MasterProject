@@ -1,10 +1,8 @@
 ﻿@model IEnumerable<MasterProject.Models.Recipe>
-
 @{
     ViewData["Title"] = "Index";
 }
-
-<h1>Index</h1>
+<h1>Przepisy</h1>
 
 @using (Html.BeginForm("Index", "Recipes", FormMethod.Get))
 {
@@ -14,32 +12,59 @@
     </p>
 }
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Kcal)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Kcal)
-                </td>
-                <td>
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4">
+            <div class="card">
+                <img src="~/images/400.jpg" class="card-img-top" alt="Obraz przepisu">
+                <div class="card-body">
+                    <h5 class="card-title">@item.Name</h5>
+                    <p class="card-text">Kcal: @item.Kcal</p>
+                    <a href="@Url.Action("Details", new { id = item.Id })" class="btn btn-primary">Szczegóły</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="text-center">
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            @if (Model.Count() > 0)
+            {
+                <li class="page-item @(ViewBag.CurrentPage == 1 ? "disabled" : "")">
+                    <a class="page-link" href="?page=1">1</a>
+                </li>
+                @if (ViewBag.CurrentPage > 5)
+                {
+                    <li class="page-item">
+                        <span class="page-link">...</span>
+                    </li>
+                }
+                @for (int i = ViewBag.CurrentPage - 4; i <= ViewBag.CurrentPage + 5 && i <= ViewBag.TotalPages; i++)
+                {
+                    if (i > 1 && i < ViewBag.TotalPages)
+                    {
+                        <li class="page-item @(ViewBag.CurrentPage == i ? "active" : "")">
+                            <a class="page-link" href="?page=@i">@i</a>
+                        </li>
+                    }
+                }
+                @if (ViewBag.TotalPages > ViewBag.CurrentPage + 5)
+                {
+                    <li class="page-item">
+                        <span class="page-link">...</span>
+                    </li>
+                }
+                @if (ViewBag.TotalPages > 1)
+                {
+                    <li class="page-item @(ViewBag.CurrentPage == ViewBag.TotalPages ? "disabled" : "")">
+                        <a class="page-link" href="?page=@ViewBag.TotalPages">@ViewBag.TotalPages</a>
+                    </li>
+                }
+            }
+        </ul>
+    </nav>
+</div>
+
