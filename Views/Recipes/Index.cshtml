@@ -1,7 +1,9 @@
 ﻿@model IEnumerable<MasterProject.Models.Recipe>
+
 @{
     ViewData["Title"] = "Index";
 }
+
 <h1>Przepisy</h1>
 
 @using (Html.BeginForm("Index", "Recipes", FormMethod.Get))
@@ -17,7 +19,7 @@
     {
         <div class="col-md-4">
             <div class="card">
-                <img src="~/images/400.jpg" class="card-img-top" alt="Obraz przepisu">
+                <img src="@item.ImageUrl" class="card-img-top" alt="Obraz przepisu" onerror="this.onerror=null;this.src='https://via.placeholder.com/150';">
                 <div class="card-body">
                     <h5 class="card-title">@item.Name</h5>
                     <p class="card-text">Kcal: @item.Kcal</p>
@@ -67,4 +69,3 @@
         </ul>
     </nav>
 </div>
-
