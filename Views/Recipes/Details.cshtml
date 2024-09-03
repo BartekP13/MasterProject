@@ -5,29 +5,38 @@
 }
 
 <div>
-    <h1>@Html.DisplayFor(model => model.Name)</h1>
 
     <div>
         <form asp-controller="Recipes" asp-action="Index" method="get">
-            <button type="submit" class="btn btn-primary">Back</button>
+            <button type="submit" class="btn btn-primary">Powrót</button>
         </form>
     </div>
+
+    <h1>@Html.DisplayFor(model => model.Name)</h1>
 
     <div>
         <img src="@Model.ImageUrl" alt="Zdjecie przepisu" class="img-fluid mx-auto d-block" style="width: 750px; height: 750px;">
     </div>
 
     <div style="text-align: right;">
+        @if (ViewBag.UserRating != null)
+        {
+            <p>Twoja ocena: @ViewBag.UserRating</p>
+        }
+        else
+        {
         <form asp-controller="Recipes" asp-action="AddRating" method="post">
             <input type="hidden" name="recipeId" value="@Model.Id" />
 
-            <label>Rate (1-5):</label>
+            <label>Oceń przepis (1-5):</label>
             <button type="submit" name="ratingValue" value="1">1</button>
             <button type="submit" name="ratingValue" value="2">2</button>
             <button type="submit" name="ratingValue" value="3">3</button>
             <button type="submit" name="ratingValue" value="4">4</button>
             <button type="submit" name="ratingValue" value="5">5</button>
         </form>
+        }
+        <p>Średnia ocena: @ViewBag.AverageRating.ToString("0.0")</p>
     </div>
 
     <div>
@@ -35,21 +44,29 @@
         <hr />
         <div class="row">
             <div class="col-sm-6">
-                <dl>
-                    <dt>@Html.DisplayNameFor(model => model.Name)</dt>
+                <dl style="display: grid; grid-template-columns: auto 1fr; gap: 10px;">
+                    <dt>Nazwa:</dt>
                     <dd>@Html.DisplayFor(model => model.Name)</dd>
-                    <dt>@Html.DisplayNameFor(model => model.Kcal)</dt>
+
+                    <dt>Kalorie:</dt>
                     <dd>@Html.DisplayFor(model => model.Kcal)</dd>
-                    <dt>@Html.DisplayNameFor(model => model.Carbohydrates)</dt>
+
+                    <dt>Węglowodany:</dt>
                     <dd>@Html.DisplayFor(model => model.Carbohydrates)</dd>
-                    <dt>@Html.DisplayNameFor(model => model.Fat)</dt>
+
+                    <dt>Tłuszcze:</dt>
                     <dd>@Html.DisplayFor(model => model.Fat)</dd>
-                    <dt>@Html.DisplayNameFor(model => model.Fiber)</dt>
+
+                    <dt>Błonnik:</dt>
                     <dd>@Html.DisplayFor(model => model.Fiber)</dd>
-                    <dt>@Html.DisplayNameFor(model => model.Protein)</dt>
+
+                    <dt>Białko:</dt>
                     <dd>@Html.DisplayFor(model => model.Protein)</dd>
                 </dl>
             </div>
+
+
+
             <div class="col-sm-6">
                 <dl>
                     <dt>Składniki</dt>
@@ -67,7 +84,7 @@
     </div>
 </div>
 
-<dt class="col-sm-2">Tags</dt>
+<dt class="col-sm-2">Tagi</dt>
 <dd class="col-sm-10">
     @{
         var tagCount = ViewBag.TagNames.Count;
@@ -95,7 +112,7 @@
                 <img src="@similarRecipe.ImageUrl" class="card-img-top" alt="@similarRecipe.Name">
                 <div class="card-body">
                     <h5 class="card-title">@similarRecipe.Name</h5>
-                    <a href="@Url.Action("Details", new { id = similarRecipe.Id })" class="btn btn-primary">View Recipe</a>
+                    <a href="@Url.Action("Details", new { id = similarRecipe.Id })" class="btn btn-primary">Szczegóły</a>
                 </div>
             </div>
         </div>

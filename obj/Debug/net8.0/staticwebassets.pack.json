@@ -17,6 +17,22 @@
       "PackagePath": "staticwebassets\\images\\400.jpg"
     },
     {
+      "Id": "C:\\Users\\Bartek\\Documents\\MasterProject2\\wwwroot\\images\\icon-moustache-white.png",
+      "PackagePath": "staticwebassets\\images\\icon-moustache-white.png"
+    },
+    {
+      "Id": "C:\\Users\\Bartek\\Documents\\MasterProject2\\wwwroot\\images\\icon-moustache.png",
+      "PackagePath": "staticwebassets\\images\\icon-moustache.png"
+    },
+    {
+      "Id": "C:\\Users\\Bartek\\Documents\\MasterProject2\\wwwroot\\images\\obraz-strona-glowna.png",
+      "PackagePath": "staticwebassets\\images\\obraz-strona-glowna.png"
+    },
+    {
+      "Id": "C:\\Users\\Bartek\\Documents\\MasterProject2\\wwwroot\\images\\przepis-foto-glowna.png",
+      "PackagePath": "staticwebassets\\images\\przepis-foto-glowna.png"
+    },
+    {
       "Id": "C:\\Users\\Bartek\\Documents\\MasterProject2\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

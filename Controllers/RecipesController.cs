@@ -26,6 +26,18 @@ namespace MasterProject.Controllers
             _userManager = userManager;
         }
 
+
+        public async Task<IActionResult> Autocomplete(string term)
+        {
+            var recipes = await _context.Recipe
+                .Where(r => r.Name.Contains(term))
+                .Select(r => r.Name)
+                .ToListAsync();
+
+            return Json(recipes);
+        }
+
+
         [HttpPost]
         public async Task<IActionResult> AddRating(int recipeId, int ratingValue)
         {
@@ -70,7 +82,8 @@ namespace MasterProject.Controllers
             // Zapisz zmiany w bazie danych
             await _context.SaveChangesAsync();
 
-            return Ok(); // Pomyślnie dodano ocenę
+            // Przekierowanie do szczegółów przepisu
+            return RedirectToAction("Details", new { id = recipeId });
         }
 
         private async Task<List<int>> GetRecommendedRecipesAsync(string userId)
@@ -86,6 +99,28 @@ namespace MasterProject.Controllers
                     var recommendedRecipeIds = jsonResponse["recommendations"].ToObject<List<int>>();
 
                     return recommendedRecipeIds;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Zaloguj błąd lub obsłuż wyjątek według potrzeb
+                return new List<int>();
+            }
+        }
+
+        private async Task<List<int>> GetTopRecipesAsync()
+        {
+            var apiUrl = "https://flaskrecommenderapp.azurewebsites.net/top_recipes";
+
+            try
+            {
+                using (var httpClient = new HttpClient())
+                {
+                    var response = await httpClient.GetStringAsync(apiUrl);
+                    var jsonResponse = JObject.Parse(response);
+                    var topRecipeIds = jsonResponse["top_recipes"].ToObject<List<int>>();
+
+                    return topRecipeIds;
                 }
             }
             catch (Exception ex)
@@ -116,29 +151,59 @@ namespace MasterProject.Controllers
 
             ViewBag.CurrentPage = pageNumber;
             ViewBag.TotalPages = totalPages;
+            ViewBag.IsSearching = !String.IsNullOrEmpty(searchString); // Dodajemy flagę wyszukiwania
 
             var paginatedRecipes = await recipes.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();
 
-            // Pobieranie rekomendowanych przepisów
-            var user = await _userManager.GetUserAsync(User);
-            List<Recipe> recommendedRecipes = new List<Recipe>();
-
-            if (user != null)
+            if (ViewBag.IsSearching)
             {
-                var recommendedRecipeIds = await GetRecommendedRecipesAsync(user.Id);
-                if (recommendedRecipeIds != null && recommendedRecipeIds.Count > 0)
-                {
-                    recommendedRecipes = await _context.Recipe
-                        .Where(r => recommendedRecipeIds.Contains(r.Id))
-                        .ToListAsync();
-                }
+                // Jeśli wyszukujesz, to nie pobieraj rekomendacji i najlepszych przepisów
+                ViewBag.RecommendedRecipes = null;
+                ViewBag.TopRecipes = null;
             }
+            else
+            {
+                // Pobieranie rekomendowanych przepisów
+                var user = await _userManager.GetUserAsync(User);
+                List<Recipe> recommendedRecipes = new List<Recipe>();
 
-            // Przekazanie rekomendowanych przepisów do widoku
-            ViewBag.RecommendedRecipes = recommendedRecipes;
+                if (user != null)
+                {
+                    var recommendedRecipeIds = await GetRecommendedRecipesAsync(user.Id);
+                    if (recommendedRecipeIds != null && recommendedRecipeIds.Count > 0)
+                    {
+                        recommendedRecipes = await _context.Recipe
+                            .Where(r => recommendedRecipeIds.Contains(r.Id))
+                            .ToListAsync();
+                    }
+                }
+                ViewBag.RecommendedRecipes = recommendedRecipes;
+
+                // Pobieranie najlepszych przepisów
+                var topRecipeIds = await GetTopRecipesAsync();
+                List<Recipe> topRecipes = new List<Recipe>();
+                Dictionary<int, double> recipeRatings = new Dictionary<int, double>();
+
+                if (topRecipeIds != null && topRecipeIds.Count > 0)
+                {
+                    topRecipes = await _context.Recipe
+                        .Where(r => topRecipeIds.Contains(r.Id))
+                        .ToListAsync();
+
+                    // Obliczanie średnich ocen dla najlepszych przepisów
+                    recipeRatings = await _context.Ratings
+                        .Where(r => topRecipeIds.Contains(r.RecipeId))
+                        .GroupBy(r => r.RecipeId)
+                        .ToDictionaryAsync(g => g.Key, g => g.Average(r => (double)r.Rating));
+                }
+                ViewBag.TopRecipes = topRecipes;
+                ViewBag.RecipeRatings = recipeRatings;
+            }
 
             return View(paginatedRecipes);
         }
+
+
 
         private async Task<List<int>> GetSimilarRecipesAsync(int recipeId)
         {
@@ -171,7 +236,7 @@ namespace MasterProject.Controllers
 
             var recipe = await _context.Recipe
                 .Include(r => r.Ingredients)
-                    .ThenInclude(i => i.IngredientNames) 
+                    .ThenInclude(i => i.IngredientNames)
                 .Include(r => r.Recipe_Tag)
                     .ThenInclude(rt => rt.Tag)
                 .FirstOrDefaultAsync(r => r.Id == id);
@@ -186,8 +251,24 @@ namespace MasterProject.Controllers
                 .Where(rt => rt.Tag != null)
                 .Select(rt => rt.Tag.Name)
                 .ToList();
-
             ViewBag.TagNames = tagNames;
+
+            // Oblicz średnią ocenę
+            var averageRating = await _context.Ratings
+                .Where(r => r.RecipeId == id)
+                .AverageAsync(r => (double?)r.Rating) ?? 0.0;
+            ViewBag.AverageRating = averageRating;
+
+            // Sprawdź, czy użytkownik ocenił już ten przepis
+            var user = await _userManager.GetUserAsync(User);
+            var userRating = await _context.Ratings
+                .FirstOrDefaultAsync(r => r.RecipeId == id && r.UserId == user.Id);
+
+            // Jeżeli użytkownik ocenił przepis, przekaż jego ocenę do widoku
+            if (userRating != null)
+            {
+                ViewBag.UserRating = userRating.Rating;
+            }
 
             // Pobierz podobne przepisy
             var similarRecipeIds = await GetSimilarRecipesAsync(recipe.Id);
@@ -204,5 +285,6 @@ namespace MasterProject.Controllers
 
             return View(recipe);
         }
+
     }
 }
