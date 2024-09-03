@@ -30,7 +30,7 @@ namespace MasterProject.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("IngredientNameID")
+                    b.Property<int>("IngredientNameId")
                         .HasColumnType("int");
 
                     b.Property<string>("Quantity")
@@ -42,7 +42,7 @@ namespace MasterProject.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("IngredientNameID");
+                    b.HasIndex("IngredientNameId");
 
                     b.HasIndex("RecipeId");
 
@@ -366,7 +366,7 @@ namespace MasterProject.Data.Migrations
                 {
                     b.HasOne("MasterProject.Models.IngredientNames", "IngredientNames")
                         .WithMany()
-                        .HasForeignKey("IngredientNameID")
+                        .HasForeignKey("IngredientNameId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
