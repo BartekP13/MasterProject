@@ -1,8 +1,53 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Strona główna";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container">
+    <header class="text-center mt-5">
+        <h1 class="display-4">Witamy w Kuchni Smaku</h1>
+        <p class="lead">Twoja platforma do personalizowanych, zdrowych i pysznych przepisów!</p>
+    </header>
+
+    <div class="row my-5">
+        <div class="col-md-6">
+            <h2>Odkryj Nowe Przepisy</h2>
+            <p>Znajdź przepisy dostosowane do Twoich upodobań i potrzeb dietetycznych. Niezależnie od tego, czy szukasz dań niskowęglowodanowych, wysokobiałkowych, czy zbilansowanych, mamy coś dla każdego.</p>
+
+            @if (User.Identity.IsAuthenticated)
+            {
+                <a class="btn btn-primary" href="/Recipes">Zobacz Przepisy</a>
+            }
+            else
+            {
+                <a class="btn btn-primary" href="/Identity/Account/Login">Zaloguj się</a>
+            }
+        </div>
+
+        <div class="col-md-6">
+            <img src="https://via.placeholder.com/500" class="img-fluid rounded" alt="Pyszne jedzenie">
+        </div>
+    </div>
+
+    <section class="my-5 text-center">
+        <h2>Wybrane dla Ciebie</h2>
+        <p>Zobacz przepisy, które zostały polecone na podstawie Twoich ocen i preferencji.</p>
+        <a class="btn btn-secondary" href="/Recipes">Odkryj Polecane Przepisy</a>
+    </section>
+
+    <section class="my-5">
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <h3>Makroskładniki</h3>
+                <p>Znajdziesz szczegółowe informacje o wartościach odżywczych każdego przepisu.</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <h3>Kaloryczność</h3>
+                <p>Monitoruj kaloryczność swoich posiłków i dopasuj je do swoich celów.</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <h3>Oceń Przepisy</h3>
+                <p>Oceń przepisy i otrzymuj rekomendacje dostosowane do Twojego gustu.</p>
+            </div>
+        </div>
+    </section>
 </div>

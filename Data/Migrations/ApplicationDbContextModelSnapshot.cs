@@ -30,9 +30,8 @@ namespace MasterProject.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("IngredientNameId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Quantity")
                         .IsRequired()
@@ -43,9 +42,53 @@ namespace MasterProject.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("IngredientNameId");
+
                     b.HasIndex("RecipeId");
 
                     b.ToTable("Ingredient");
+                });
+
+            modelBuilder.Entity("MasterProject.Models.IngredientNames", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("IngredientNames");
+                });
+
+            modelBuilder.Entity("MasterProject.Models.Ratings", b =>
+                {
+                    b.Property<int>("RatingId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RatingId"));
+
+                    b.Property<int>("Rating")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RecipeId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("RatingId");
+
+                    b.HasIndex("RecipeId");
+
+                    b.ToTable("Ratings");
                 });
 
             modelBuilder.Entity("MasterProject.Models.Recipe", b =>
@@ -321,8 +364,27 @@ namespace MasterProject.Data.Migrations
 
             modelBuilder.Entity("MasterProject.Models.Ingredient", b =>
                 {
+                    b.HasOne("MasterProject.Models.IngredientNames", "IngredientNames")
+                        .WithMany()
+                        .HasForeignKey("IngredientNameId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("MasterProject.Models.Recipe", "Recipe")
                         .WithMany("Ingredients")
+                        .HasForeignKey("RecipeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("IngredientNames");
+
+                    b.Navigation("Recipe");
+                });
+
+            modelBuilder.Entity("MasterProject.Models.Ratings", b =>
+                {
+                    b.HasOne("MasterProject.Models.Recipe", "Recipe")
+                        .WithMany()
                         .HasForeignKey("RecipeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

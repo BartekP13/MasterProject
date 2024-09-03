@@ -57,7 +57,7 @@
                         <ul>
                             @foreach (var ingredient in Model.Ingredients)
                             {
-                                <li>@ingredient.Name - @ingredient.Quantity</li>
+                                <li>@ingredient.IngredientNames.Name - @ingredient.Quantity</li>
                             }
                         </ul>
                     </dd>
@@ -84,5 +84,20 @@
     </span>
 </dd>
 
+<hr />
 
-
+<h3>Podobne przepisy</h3>
+<div class="row">
+    @foreach (var similarRecipe in ViewBag.SimilarRecipes)
+    {
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <img src="@similarRecipe.ImageUrl" class="card-img-top" alt="@similarRecipe.Name">
+                <div class="card-body">
+                    <h5 class="card-title">@similarRecipe.Name</h5>
+                    <a href="@Url.Action("Details", new { id = similarRecipe.Id })" class="btn btn-primary">View Recipe</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

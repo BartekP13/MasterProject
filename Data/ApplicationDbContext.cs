@@ -32,6 +32,11 @@ namespace MasterProject.Data
                 .HasOne(rt => rt.Tag)
                 .WithMany(t => t.Recipe_Tag)
                 .HasForeignKey(rt => rt.TagId);
+
+            modelBuilder.Entity<Ingredient>()
+                .HasOne(i => i.IngredientNames)
+                .WithMany()
+                .HasForeignKey(i => i.IngredientNameID);
         }
 
     }
