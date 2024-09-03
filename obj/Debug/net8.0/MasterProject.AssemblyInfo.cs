@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MasterProject")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+958562c5164f3c57936ad7d1a0b8aca851ac7580")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+20c21a572e1f21795da7285bf89af4b29615af7c")]
 [assembly: System.Reflection.AssemblyProductAttribute("MasterProject")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MasterProject")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
